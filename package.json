@@ -1,0 +1,27 @@
+{
+  "name": "clipster",
+  "version": "1.0.0",
+  "description": "> app in development",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnavjainn06/clipster.git"
+  },
+  "author": "Arnav Jain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arnavjainn06/clipster/issues"
+  },
+  "homepage": "https://github.com/arnavjainn06/clipster#readme",
+  "devDependencies": {
+    "electron": "^17.0.1"
+  },
+  "dependencies": {
+    "electron-acrylic-window": "^0.5.11",
+    "open": "^8.4.0",
+    "vue": "^3.2.31"
+  }
+}
