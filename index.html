@@ -17,23 +17,27 @@
 </head>
 <body>
     <main class="window" id="app">
+        <div class="note" ref="notification">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+            <span>Copied!</span>
+        </div>
+        <ion-icon class="ion-close" name="close-circle-outline"></ion-icon>
         <div class="header">
             <div class="nav"></div>
         </div>
         <div class="input-wrapper">
             <ion-icon name="search-outline"></ion-icon>
-            <input type="text" placeholder="Start Typing To Search...">
+            <input tabindex="-1" type="text" placeholder="Start Typing To Search...">
         </div>
 
         <h2>Recent Clips</h2>
         <div class="clips">
-            <div class="clip" v-for="item in items.slice().reverse()">
-                <span id="trial-x24">{{item}}</span>
+            <div class="clip" @keypress="copyForTab($event)" tabindex="0" v-for="item in items.slice().reverse()">
+                <span id="main-span">{{item}}</span>
 
                 <div class="controls">
-                    <ion-icon name="bookmark-outline"></ion-icon>
+                    <ion-icon name="bookmark-outline" @click="saveItem(text)"></ion-icon>
                     <ion-icon name="copy-outline" @click="copyToClipboard(item)"></ion-icon>
-                    <ion-icon class="trash" name="trash-outline"></ion-icon>
                 </div>
             
             </div>

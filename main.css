@@ -17,8 +17,10 @@ body {
     border-radius: 100px;
     display: flex;
     margin: auto;
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    /* padding: 6px 20px; */
     backdrop-filter: blur(100px);
+    transform: translateY(3.2px);
 }
 
 .clips {
@@ -27,12 +29,15 @@ body {
 }
 
 .header {
+    height: fit-content;
+    width: 82%;
+    /* background-color: red; */
     height: 25px;
-    width: 100%;
-    display: block;
+    display: flex;
+    margin: 0px auto;
+
     padding: 5px 0px;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
+    z-index: 2;
     -webkit-user-select: none;
     -webkit-app-region: drag;
 }
@@ -118,6 +123,13 @@ html {
     padding: 7px 12px;
     margin: 0px auto;
     margin-bottom: 10px;
+    outline: none;
+    transition: 0.1s;
+}
+
+.clip:focus {
+    background: rgba(9, 9, 9, 0.82);
+    transition: 0.1s;
 }
 
 @keyframes scaler {
@@ -128,6 +140,15 @@ html {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes new {
+    from {
+        transform: scale(0) translateY(-100px);
+    }
+    to {
+        transform: scale(1) translateY(0);
     }
 }
 
@@ -174,7 +195,7 @@ html {
 .clip:hover span {
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 350px;
+    width: 380px;
     white-space: nowrap;
 }
 
@@ -231,8 +252,8 @@ html {
 .pin-clip span {
     font-size: 13px;
     width: 100px;
-    color: white;
-    font-weight: 400;
+    color: #605e7b;
+    font-weight: 500;
     text-align: left;
     margin-bottom: 2.6px;
 }
@@ -279,4 +300,60 @@ html {
 
 .bottom ion-icon:hover {
     opacity: 0.5;
+}
+
+.ion-close {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.2s;
+    margin: 2px;
+    font-size: 16px;
+    cursor: pointer;
+    color: rgba(181, 181, 181, 0.843);
+}
+
+.ion-close:hover {
+    transition: 0.2s;
+    background-color: #5a5a5a51;
+}
+
+@keyframes opacify {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes opacifyOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.note {
+    position: absolute;
+    color: rgb(8, 255, 136);
+    display: flex;
+    align-items: center;
+    top: 12px;
+    right: 15px;
+    animation: opacify 0.4s;
+    display: none;
+}
+
+.note ion-icon {
+    margin-right: 4px;
+}
+
+.note span {
+    font-size: 14px;
 }
