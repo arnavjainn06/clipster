@@ -20,7 +20,7 @@ let tray;
 
 function createWindow() {
     win = new BrowserWindow({
-        width: 520,
+        width: 820,
         height: 620,
         frame: false,
         transparent: true,
@@ -41,7 +41,7 @@ function createWindow() {
     win.loadFile(path.join(__dirname, "/index.html"));
     win.removeMenu(true);
 
-    // win.webContents.toggleDevTools();
+    win.webContents.toggleDevTools();
 
     globalShortcut.register("CommandOrControl + Shift + X", () => {
         toggleWindowVisibility();
@@ -68,7 +68,7 @@ function createWindow() {
 
 function toggleWindow() {
     // win.reload();
-    win.setSize(520, 620);
+    win.setSize(820, 620);
     setTimeout(() => {
         win.show();
     }, 50);

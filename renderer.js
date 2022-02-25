@@ -15,9 +15,16 @@ createApp({
     methods: {
         loop() {
             const text = clipboard.readText();
-            console.log(text);
-            if (this.items[this.items.length - 1] !== text) {
-                this.items.push(text);
+
+            // let object = {
+            //     text: text,
+            //     saved: this.inStorage(text),
+            // };
+
+            let object = text;
+
+            if (this.items[this.items.length - 1] !== object) {
+                this.items.push(object);
             }
             this.reversedItems = this.items.slice().reverse();
         },
@@ -42,8 +49,30 @@ createApp({
             }
         },
         saveItem(text) {
+            console.log(text);
             let existing = JSON.parse(localStorage.getItem("saved"));
-            existing.push(text);
+            // console.log(existing);
+            if (
+                existing === null ||
+                existing === undefined ||
+                existing === "undefined"
+            ) {
+                existing = [];
+                existing.push(text);
+                localStorage.setItem("saved", JSON.stringify(existing));
+                console.log(localStorage);
+            } else {
+                if (!existing.includes(text)) {
+                    existing.push(text);
+                    localStorage.setItem("saved", JSON.stringify(existing));
+                    console.log(localStorage);
+                } else {
+                    console.log("Message in saved!");
+                }
+            }
+        },
+        inStorage(data) {
+            // let existing = JSON.parse(localStorage.getItem("saved"));
         },
     },
 }).mount("#app");
