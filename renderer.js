@@ -1,5 +1,5 @@
 const { createApp } = require("vue");
-const { clipboard, ipcMain } = require("electron");
+const { clipboard } = require("electron");
 
 createApp({
     data() {

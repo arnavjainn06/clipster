@@ -317,7 +317,8 @@ html {
 
 .ion-close:hover {
     transition: 0.2s;
-    background-color: #5a5a5a51;
+    /* background-color: #5a5a5a51; */
+    color: orangered;
 }
 
 @keyframes opacify {
